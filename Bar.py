@@ -1,28 +1,88 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_stacked_bar(data, series_labels, category_labels=None,
+                     show_values=False, value_format="{}", y_label=None,
+                     colors=None, grid=True, reverse=False):
+    """Plots a stacked bar chart with the data and labels provided.
+
+    Keyword arguments:
+    data            -- 2-dimensional numpy array or nested list
+                       containing data for each series in rows
+    series_labels   -- list of series labels (these appear in
+                       the legend)
+    category_labels -- list of category labels (these appear
+                       on the x-axis)
+    show_values     -- If True then numeric value labels will
+                       be shown on each bar
+    value_format    -- Format string for numeric value labels
+                       (default is "{}")
+    y_label         -- Label for y-axis (str)
+    colors          -- List of color labels
+    grid            -- If True display grid
+    reverse         -- If True reverse the order that the
+                       series are displayed (left-to-right
+                       or right-to-left)
+    """
+
+    ny = len(data[0])
+    ind = list(range(ny))
+
+    axes = []
+    cum_size = np.zeros(ny)
+
+    data = np.array(data)
+
+    if reverse:
+        data = np.flip(data, axis=1)
+        category_labels = reversed(category_labels)
+
+    for i, row_data in enumerate(data):
+        axes.append(plt.bar(ind, row_data, bottom=cum_size,
+                            label=series_labels[i], color=colors[i]))
+        cum_size += row_data
+
+    if category_labels:
+        plt.xticks(ind, category_labels)
+
+    if y_label:
+        plt.ylabel(y_label)
+
+    plt.legend()
+
+    if grid:
+        plt.grid()
+
+    if show_values:
+        for axis in axes:
+            for bar in axis:
+                w, h = bar.get_width(), bar.get_height()
+                plt.text(bar.get_x() + w/2, bar.get_y() + h/2,
+                         value_format.format(h), ha="center",
+                         va="center")
 
 
-# year = [2011, 1365, 2016, 2017, 2018, 2019]
-year = ["E1", "E2", "E3","E4","E5","E6","E7","E8","E9","E10","E11","E12","E13","E14"
-        ,"Mean E1 to E14", "Mean C1 to C14","C1","C2","C3","C4","C5","C6","C7","C8","C9","C10"
-        ,"C11","C12","C13","C14"]
-tutorial = [36,	13,	10,	17,	16,	10	,13,	9,	10	,13,	3,	17,	6,	11,	13.1,	0,	0,
-            0,	0,	0	,0	,0	,0	,0,	0,	0,	0	,0,	0,	0]
-first_loc = [14,	10,	7,	9,	5,	3	,7,	9,	10,	2,	3,	8,	8,	7,	7,	45,	39,	33,	35,	56,	30,	45,	45,	45,	55	,52,	40	,57,	50,	42]
-first_task = [15,	14,	13,	11,	8,	15,	13,	16,	13,	7,	7,	11,	13,	11,	12,	156,	105,	130,
-              130	,143,	145,	150,	150,	160,	160,	166	,168,	177,	185,	215]
-# Heights of bars1 + bars2
-bars = np.add(tutorial, first_loc).tolist()
 
-p1= plt.barh(year, tutorial, color="#ffa600")
-# careful: notice "bottom" parameter became "left"
-p2= plt.barh(year, first_loc, left=tutorial, color="#ff6361")
-p3= plt.barh(year, first_task, left=bars, color="#58508d")
-# we also need to switch the labels
-plt.xlabel('Time in minutes')
-plt.ylabel('Participants of both conditions')
-plt.legend((p1[0], p2[0],p3[0]), ('Time to fetch first task or clone the code', 'Time to write first lines of code'
-                                  ,'Times to complete first task'))
-plt.title('Onboarding time of participants of both conditions')
-# plt.show()
-plt.savefig('line_plot.pdf')
+
+series_labels = ['Series 1', 'Series 2']
+
+data = [
+    [0.2, 0.3, 0.35, 0.3],
+    [0.8, 0.7, 0.6, 0.5]
+]
+
+category_labels = ['Cat A', 'Cat B', 'Cat C', 'Cat D']
+
+plot_stacked_bar(
+    data,
+    series_labels,
+    category_labels=category_labels,
+    show_values=True,
+    value_format="{:.1f}",
+    colors=['tab:orange', 'tab:green'],
+    grid=False,
+    y_label="Quantity (units)"
+)
+
+plt.savefig('bar.png')
+plt.show()
