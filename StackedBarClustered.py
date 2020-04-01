@@ -23,5 +23,5 @@ plt.legend((p1[0], p2[0], p3[0]),
             , 'Start first task/issue until finishing it'))
 plt.title('Onboarding time of controlled(Ci) and experimental(Ei) participants')
 plt.subplots_adjust(left=0.15, right=0.96, top=0.95, bottom=0.1)
-# plt.show()
-plt.savefig('onboading.pdf')
+plt.show()
+plt.savefig('./data/onboading.pdf')

@@ -29,5 +29,5 @@ plt.legend((p1[0], p2[0],p3[0],p4[0],p5[0]), ('Poor', 'Fairs','Satisfactory','Ve
            bbox_to_anchor=(0,1.02,1, 0.2),mode='expand',ncol=5,borderaxespad=0)
 plt.title('Quality of code by controlled (C) and experimental (E) groups',y=1.09)
 plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1)
-# plt.show()
-plt.savefig('Qoc.pdf',bbox_inches='tight')
+plt.show()
+plt.savefig('./data/Qoc.pdf',bbox_inches='tight')

@@ -8,4 +8,5 @@ sns.set(style="whitegrid")
 print(productivity)
 ax = sns.violinplot(x="Developers", y="Number of correctly implemented behaviors", data=productivity, inner=None,  palette=['#ff6361','#58508d']).set_title("Productivity of Individual Developers")
 ax = sns.swarmplot(x="Developers", y="Number of correctly implemented behaviors", data=productivity, color="white", edgecolor="gray")
-plt.savefig('prod.pdf')
+plt.show();
+plt.savefig('./data/prod.pdf')

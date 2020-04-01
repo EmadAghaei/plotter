@@ -67,8 +67,8 @@ def plot_stacked_bar(data, series_labels, category_labels=None,
 series_labels = ['Series 1', 'Series 2']
 
 data = [
-    [0.2, 0.3, 0.35, 0.3],
-    [0.8, 0.7, 0.6, 0.5]
+    [1, 1, 1, 1],
+    [1, 1, 1, 1]
 ]
 
 category_labels = ['Cat A', 'Cat B', 'Cat C', 'Cat D']
@@ -84,5 +84,5 @@ plot_stacked_bar(
     y_label="Quantity (units)"
 )
 
-plt.savefig('bar.png')
+plt.savefig('./data/bar.png')
 plt.show()
