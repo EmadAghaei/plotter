@@ -15,25 +15,26 @@ first_task = [15, 14, 13, 11, 8, 15, 13, 16, 13, 7, 7, 11, 13, 11, 0, 105, 130, 
 FirstLOCWidth = np.add(tutorial, training_task).tolist()
 firstTaskWidth = np.add(first_loc, FirstLOCWidth).tolist()
 # careful: notice "bottom" parameter became "left"
-
+# plt.figure(figsize=(5,7))
 p0 = plt.barh(participants, training_task, color="#ffa600")
 p1 = plt.barh(participants, tutorial,left=training_task, color="#ff6361")
 p2 = plt.barh(participants, first_loc, left=FirstLOCWidth, color="#58508d")
 p3 = plt.barh(participants, first_task, left=firstTaskWidth, color="#003f5c")
 # we also need to switch the labels  003f5c
-plt.xlabel('Time in minutes')
+plt.xlabel('Time in minutes', fontsize=12)
 # plt.ylabel('Participants of controlled(Ci) and experimental(Ei) groups')
 plt.legend((p0[0],p1[0], p2[0], p3[0]),
            ('Training task', '\n'.join(wrap('Beginning of session until starting the first task', 25)),
             '\n'.join(wrap('Start first task/issue until writing first LOC', 25)),
 '\n'.join(wrap('Start first task/issue until finishing it', 25))
-            ))
-plt.title('Onboarding time of control(Ci) and experimental(Ei) participants')
-plt.subplots_adjust(left=0.15, right=0.96, top=0.95, bottom=0.1)
+            ), fontsize=11)
+plt.title( 'Onboarding time of control(Ci) and experimental(Ei) participants', fontsize=13)
+plt.subplots_adjust(left=0.19, right=0.89, top=0.87, bottom=0.1)
 # remove the frame
 
 plt.gca().spines['right'].set_visible(False)
 plt.gca().spines['top'].set_visible(False)
+# plt.figure(figsize=(5,5))
 
 
 
