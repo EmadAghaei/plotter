@@ -101,7 +101,7 @@ source = alt.pd.DataFrame([
       },
 
       { "order": 1,
-        "question": "Clarity (E)",
+        "question": "Clarity (M)",
         "type": "Poor",
         "value": 0,
         "percentage": 0,
@@ -109,7 +109,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 0
       },
       { "order": 1,
-        "question": "Clarity (E)",
+        "question": "Clarity (M)",
         "type": "Fair",
         "value": 0,
         "percentage": 0,
@@ -117,7 +117,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 0
       },
       { "order": 1,
-        "question": "Clarity (E)",
+        "question": "Clarity (M)",
         "type": "Satisfactory",
         "value": 37.5,
         "percentage": 37.5,
@@ -125,7 +125,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 37.5
       },
       { "order": 1,
-        "question": "Clarity (E)",
+        "question": "Clarity (M)",
         "type": "Very Good",
         "value": 50,
         "percentage": 50,
@@ -133,7 +133,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 87.5
       },
       { "order": 1,
-        "question": "Clarity (E)",
+        "question": "Clarity (M)",
         "type": "Excellent",
         "value": 12.5,
         "percentage": 12.5,
@@ -185,7 +185,7 @@ source = alt.pd.DataFrame([
       },
 
       { "order": 2,
-        "question": "Consistency (E)",
+        "question": "Consistency (M)",
         "type": "Poor",
         "value": 12.5,
         "percentage":  12.5,
@@ -193,7 +193,7 @@ source = alt.pd.DataFrame([
         "percentage_end": -25
       },
       { "order": 2,
-        "question": "Consistency (E)",
+        "question": "Consistency (M)",
         "type": "Fair",
         "value":  12.5,
         "percentage":  12.5,
@@ -201,7 +201,7 @@ source = alt.pd.DataFrame([
         "percentage_end": -12.5
       },
       { "order": 2,
-        "question": "Consistency (E)",
+        "question": "Consistency (M)",
         "type": "Satisfactory",
         "value": 0,
         "percentage": 0,
@@ -209,7 +209,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 0
       },
       { "order": 2,
-        "question": "Consistency (E)",
+        "question": "Consistency (M)",
         "type": "Very Good",
         "value": 50,
         "percentage": 50,
@@ -217,7 +217,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 50
       },
       { "order": 2,
-        "question": "Consistency (E)",
+        "question": "Consistency (M)",
         "type": "Excellent",
         "value": 25,
         "percentage": 25,
@@ -267,7 +267,7 @@ source = alt.pd.DataFrame([
       },
 
       { "order": 1,
-        "question": "Simplicity (E)",
+        "question": "Simplicity (M)",
         "type": "Poor",
         "value": 0,
         "percentage": 0,
@@ -275,7 +275,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 0
       },
       { "order": 1,
-        "question": "Simplicity (E)",
+        "question": "Simplicity (M)",
         "type": "Fair",
         "value": 25,
         "percentage": 25,
@@ -283,7 +283,7 @@ source = alt.pd.DataFrame([
         "percentage_end": -25
       },
       { "order": 1,
-        "question": "Simplicity (E)",
+        "question": "Simplicity (M)",
         "type": "Satisfactory",
         "value": 0,
         "percentage": 0,
@@ -291,7 +291,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 0
       },
       { "order": 1,
-        "question": "Simplicity (E)",
+        "question": "Simplicity (M)",
         "type": "Very Good",
         "value": 62.5,
         "percentage": 62.5,
@@ -299,7 +299,7 @@ source = alt.pd.DataFrame([
         "percentage_end": 62.5
       },
       { "order": 1,
-        "question": "Simplicity (E)",
+        "question": "Simplicity (M)",
         "type": "Excellent",
         "value": 12.5,
         "percentage": 12.5,
@@ -324,7 +324,8 @@ y_axis = alt.Axis( title='', offset=5, ticks=False,  minExtent=60,    domain=Fal
 
 chart =alt.Chart(source,width=600,height=300).mark_bar().encode(x='percentage_start:Q',x2='percentage_end:Q', y=alt.Y('question:N', axis=y_axis),
                                                                 color=alt.Color( 'type:N', legend=alt.Legend(title='',orient='top'), scale=color_scale,
-                                                                                 )).properties(title='Quality of code of control (C) and experimental (E) groups').configure_view(strokeWidth=0)
+                                                                                 )) .configure_view(strokeWidth=0)
+    # .properties(title='Quality of code of control (C) and microtask programming (M) groups').configure_view(strokeWidth=0)
     # .configure_axis(labelFontSize=20,  titleFontSize=20).configure_title(fontSize=20)
 
 chart.show()

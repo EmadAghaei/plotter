@@ -4,8 +4,8 @@ from textwrap import wrap
 import matplotlib as mpl
 
 
-participants = ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11", "E12", "E13", "E14", "", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14", " "
-  ," "  , "Mean E1-14", "Mean C1-14"]
+participants = ["M14", "M13", "M12", "M11", "M10", "M9", "M8", "M7", "M6", "M5", "M4", "M3", "M2", "M1","", "C14", "C13", "C12", "C11", "C10", "C9", "C8", "C7", "C6", "C5", "C4", "C3", "C2", "C1", " "
+  ," "  , "Mean M1-14", "Mean C1-14"]
 # addedd zero as seperator
 training_task=[30,10,17,15,13,15,22,18,31,17,32,15,14,15,0,9,7,6,6,9,6,10,5,8,10,7,7,6,9,0,0,18.8,7.5]
 tutorial = [36, 13, 10, 17, 16, 10, 13, 9, 10, 13, 3, 17, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 13.1, 0]
@@ -15,7 +15,7 @@ first_task = [15, 14, 13, 11, 8, 15, 13, 16, 13, 7, 7, 11, 13, 11, 0, 105, 130, 
 FirstLOCWidth = np.add(tutorial, training_task).tolist()
 firstTaskWidth = np.add(first_loc, FirstLOCWidth).tolist()
 # careful: notice "bottom" parameter became "left"
-# plt.figure(figsize=(5,7))
+plt.figure(figsize=(5,5))
 p0 = plt.barh(participants, training_task, color="#ffa600")
 p1 = plt.barh(participants, tutorial,left=training_task, color="#ff6361")
 p2 = plt.barh(participants, first_loc, left=FirstLOCWidth, color="#58508d")
@@ -28,13 +28,13 @@ plt.legend((p0[0],p1[0], p2[0], p3[0]),
             '\n'.join(wrap('Start first task/issue until writing first LOC', 25)),
 '\n'.join(wrap('Start first task/issue until finishing it', 25))
             ), fontsize=11)
-plt.title( 'Onboarding time of control(Ci) and experimental(Ei) participants', fontsize=13)
-plt.subplots_adjust(left=0.19, right=0.89, top=0.87, bottom=0.1)
+# plt.title( 'Onboarding time of control(Ci) and experimental(Ei) participants', fontsize=13)
+plt.subplots_adjust(left=0.19, right=1.0, top=1.02, bottom=0.1)
 # remove the frame
 
 plt.gca().spines['right'].set_visible(False)
 plt.gca().spines['top'].set_visible(False)
-# plt.figure(figsize=(5,5))
+
 
 
 

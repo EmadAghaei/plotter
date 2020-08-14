@@ -4,7 +4,7 @@ import numpy as np
 
 
 
-qos_metrics = [ "Simplicity (E)","Simplicity (C)","Consistency (E)" ,"Consistency (C)", "Clarity (E)","Clarity (C)" ]
+qos_metrics = [ "Simplicity (M)","Simplicity (C)","Consistency (M)" ,"Consistency (C)", "Clarity (M)","Clarity (C)" ]
 Poor = [0.0,8.9,12.5,12.5,0.0,10.7]
 Fair =[25.0,12.5,12.5,12.5,0.0,21.4]
 Satisfactory = [0.0,30.4,0.0,17.9,37.5,28.6]
