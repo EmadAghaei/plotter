@@ -17,18 +17,18 @@ FirstLOCWidth = np.add(tutorial, training_task).tolist()
 firstTaskWidth = np.add(first_loc, FirstLOCWidth).tolist()
 # careful: notice "bottom" parameter became "left"
 plt.figure(figsize=(5,5))
-p0 = plt.barh(participants, training_task,height=0.7, color="#ffa600")
-p1 = plt.barh(participants, tutorial,height=0.7,left=training_task, color="#58508d")
-p2 = plt.barh(participants, first_loc,height=0.7, left=FirstLOCWidth, color="#ff6361")
-p3 = plt.barh(participants, first_task,height=0.35,left=FirstLOCWidth, color="#003f5c")
+p0 = plt.barh(participants, training_task,height=0.8, color="#ffa600")
+p1 = plt.barh(participants, tutorial,height=0.8,left=training_task, color="#58508d")
+p2 = plt.barh(participants, first_loc,height=0.8, left=FirstLOCWidth, color="#ff6361")
+p3 = plt.barh(participants, first_task,height=0.3,left=FirstLOCWidth, color="#003f5c")
 # p3 = plt.barh(participants, diff_first_task_to_first_loc, left=firstTaskWidth, color="#003f5c")
 # we also need to switch the labels  003f5c
 plt.xlabel('Time in minutes', fontsize=12)
 # plt.ylabel('Participants of controlled(Ci) and experimental(Ei) groups')
 plt.legend((p0[0],p1[0], p2[0], p3[0]),
-           ('Training task (0-T1)', '\n'.join(wrap('Learning environment (T1-T2)', 25)),
-            '\n'.join(wrap('Start first task until writing first LOC (T2-T3)', 25)),
-'\n'.join(wrap('Start first task until completing (T2-T4)', 25))
+           ('Tutorials (T0-T1)', '\n'.join(wrap('Learning programming environment (T1-T2)', 25)),
+            '\n'.join(wrap('Writing first LOC (T2-T3)', 25)),
+'\n'.join(wrap('Completing first task (T2-T4)', 25))
             ), fontsize=11)
 # plt.title( 'Onboarding time of control(Ci) and experimental(Ei) participants', fontsize=13)
 plt.subplots_adjust(left=0.19, right=1.0, top=1.02, bottom=0.1)
