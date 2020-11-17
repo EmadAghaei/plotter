@@ -28,7 +28,7 @@ plt.xlabel('Time in minutes', fontsize=12)
 plt.legend((p0[0],p1[0], p2[0], p3[0]),
            ('Tutorials (T0-T1)', '\n'.join(wrap('Learning programming environment (T1-T2)', 25)),
             '\n'.join(wrap('Writing first LOC (T2-T3)', 25)),
-'\n'.join(wrap('Completing first task (T2-T4)', 25))
+'\n'.join(wrap('Writing first microtask or issue (T2-T4)', 25))
             ), fontsize=11)
 # plt.title( 'Onboarding time of control(Ci) and experimental(Ei) participants', fontsize=13)
 plt.subplots_adjust(left=0.19, right=1.0, top=1.02, bottom=0.1)
